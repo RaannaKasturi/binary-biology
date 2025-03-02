@@ -144,6 +144,9 @@ const Gallery4 = ({
                 <Link href={item.href} target="_blank" rel="nofollow noreferrer" className="group rounded-xl">
                   <div className="group relative h-full min-h-[27rem] max-w-full overflow-hidden rounded-xl md:aspect-[5/4] lg:aspect-[16/9]">
                     <Image
+                      style={{ objectPosition: "center center", objectFit: "cover" }}
+                      fill={true}
+                      sizes="100vw"
                       src={item.image}
                       alt={item.title}
                       className="absolute h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"

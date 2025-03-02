@@ -171,7 +171,7 @@ function HeroGeometric({
                         initial="hidden"
                         animate="visible"
                     >
-                        <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tight">
+                        <span className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tight">
                             <h3 className="text-2xl sm:text-3xl md:text-5xl bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
                                 {title0} <br /> {title1}
                             </h3>
@@ -183,7 +183,7 @@ function HeroGeometric({
                             >
                                 {title2}
                             </h1>
-                        </h1>
+                        </span>
                     </motion.div>
 
                     <motion.div
