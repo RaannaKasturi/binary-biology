@@ -21,7 +21,7 @@ function CTA() {
             </p>
           </div>
           <div className="flex flex-row gap-4">
-            <Link href="mailto:contact@binarybiology.top" target="_blank" rel="noopener noreferrer">
+            <Link href="mailto:contact@binarybiology.top" target="_blank" rel="nofollow noreferrer">
               <Button className="gap-4">
                 Send Mail <MailIcon className="w-4 h-4" />
               </Button>

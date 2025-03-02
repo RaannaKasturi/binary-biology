@@ -140,7 +140,7 @@ const Gallery4 = ({
                 key={item.id}
                 className="max-w-[320px] pl-[20px] lg:max-w-[360px]"
               >
-                <Link href={item.href} target="_blank" rel="noopener noreferrer" className="group rounded-xl">
+                <Link href={item.href} target="_blank" rel="nofollow noreferrer" className="group rounded-xl">
                   <div className="group relative h-full min-h-[27rem] max-w-full overflow-hidden rounded-xl md:aspect-[5/4] lg:aspect-[16/9]">
                     <img
                       src={item.image}

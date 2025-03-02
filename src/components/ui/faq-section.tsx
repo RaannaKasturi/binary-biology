@@ -7,6 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 function FAQ() {
   return (
@@ -27,9 +28,11 @@ function FAQ() {
                 </p>
               </div>
               <div >
-                <Button className="gap-4" variant="outline">
-                  Any questions? Reach out <PhoneCall className="w-4 h-4" />
-                </Button>
+                < Link href={'#contact'} target="_blank" rel="nofollow noreferrer">
+                  <Button className="gap-4" variant="outline">
+                    Any questions? Reach out <PhoneCall className="w-4 h-4" />
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

@@ -21,22 +21,22 @@ export default function Footer() {
     ];
     const copyright = {
         text: "© 2025 Binary Biology",
-        license: ""
+        license: "All Rights Reserved.",
     };
     return (
-        <footer className="pb-6 pt-16 lg:pb-8 lg:pt-24">
+        <footer className="py-10 w-full md:w-9/12">
             <div className="px-4 lg:px-8">
-                <div className="md:flex md:items-start md:justify-between">
-                    <a
+                <div className="flex items-start justify-center md:justify-between">
+                    <Link
                         href="/"
                         className="flex items-center gap-x-2"
                         aria-label={"Binary Biology"}
                     >
                         {logo}
-                        <span className="font-bold text-xl">{"Binary Biology"}</span>
-                    </a>
-                    {/* <ul className="flex list-none mt-6 md:mt-0 space-x-3">
-                        {socialLinks.map((link, i) => (
+                        <span className="font-bold text-xl">Binary Biology</span>
+                    </Link>
+                    <ul className="flex list-none mt-6 md:mt-0 space-x-3">
+                        {/* {socialLinks.map((link, i) => (
                             <li key={i}>
                                 <Button
                                     variant="secondary"
@@ -49,11 +49,11 @@ export default function Footer() {
                                     </a>
                                 </Button>
                             </li>
-                        ))}
-                    </ul> */}
+                        ))} */}
+                    </ul>
                 </div>
-                <div className="border-t mt-6 pt-6 md:mt-4 md:pt-8 lg:grid lg:grid-cols-10">
-                    <nav className="lg:mt-0 lg:col-[4/11]">
+                <div className=" border-t mt-6 pt-6 md:mt-4 md:pt-8 lg:grid lg:grid-cols-10">
+                    <nav className="lg:mt-0 lg:col-[4/11] flex items-start justify-center md:justify-end">
                         <ul className="list-none flex flex-wrap -my-1 -mx-2 lg:justify-end">
                             {mainLinks.map((link, i) => (
                                 <li key={i} className="my-1 mx-2 shrink-0">
@@ -67,9 +67,9 @@ export default function Footer() {
                             ))}
                         </ul>
                     </nav>
-                    {/* <div className="mt-6 lg:mt-0 lg:col-[4/11]">
+                    <div className="mt-6 lg:mt-0 lg:col-[4/11]">
                         <ul className="list-none flex flex-wrap -my-1 -mx-3 lg:justify-end">
-                            {legalLinks.map((link, i) => (
+                            {/* {legalLinks.map((link, i) => (
                                 <li key={i} className="my-1 mx-3 shrink-0">
                                     <a
                                         href={link.href}
@@ -78,9 +78,9 @@ export default function Footer() {
                                         {link.label}
                                     </a>
                                 </li>
-                            ))}
+                            ))} */}
                         </ul>
-                    </div> */}
+                    </div>
                     <div className="mt-6 text-sm leading-6 text-center md:text-start text-muted-foreground whitespace-nowrap lg:mt-0 lg:row-[1/3] lg:col-[1/4]">
                         <div>{copyright.text}</div>
                         <div>{copyright.license}</div>
