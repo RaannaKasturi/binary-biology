@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  useDeploymentId: true,
+  useDeploymentIdServerActions: true,
 };
 
 export default nextConfig;
