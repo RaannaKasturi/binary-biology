@@ -66,6 +66,13 @@
   scroll-behavior: smooth;
 }
 
+html {
+  font-family: var(--font-poppins);
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-syne);
+}
+
 @layer base {
   * {
     @apply border-border;

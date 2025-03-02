@@ -43,7 +43,7 @@ export default function Header() {
                         < SheetContent className="flex flex-col justify-between w-2/4" >
                             < SheetHeader className="text-start space-y-0" >
                                 < SheetTitle className="text-2xl">Binary Biology</SheetTitle>
-                                < SheetDescription className="pb-3">Biology & Technology</SheetDescription>
+                                < SheetDescription className="pb-3">Integrating Biology with Technology</SheetDescription>
                                 <Separator orientation={'horizontal'} />
                                 <ul className="navbar-nav navbar flex flex-col justify-between items-start pt-5">
                                     <Link href="#" className="navbar nav-link cursor-pointer hover:underline underline-offset-2 w-full hover:scale-110 hover:bg-secondary hover:text-primary text-end pr-5 p-2 rounded" >

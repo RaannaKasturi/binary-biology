@@ -1,8 +1,18 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  useDeploymentId: true,
-  useDeploymentIdServerActions: true,
+    images: {
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "*.unsplash.com",
+            },
+            {
+                protocol: "http",
+                hostname: "*.unsplash.com",
+            },
+        ],
+    },
 };
 
 export default nextConfig;
