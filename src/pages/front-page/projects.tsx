@@ -40,8 +40,8 @@ const demoData: Gallery4Props = {
 
 export default function Projects() {
     return (
-        <section id="projects" className="items-center justify-center p-4 -my-16 w-full select-none">
-            <BlurFade delay={0.25} inView>
+        <section id="projects" className="items-center justify-center p-5 w-full select-none">
+            <BlurFade delay={0.25} inView className="py-20">
                 <Gallery4 {...demoData} />
             </BlurFade>
         </section>

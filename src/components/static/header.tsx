@@ -27,7 +27,7 @@ export default function Header() {
             <Link href={"/"} className="cursor-pointer" >
                 <div className="flex flex-row items-center space-x-3">
                     <Image src={logo} alt={logoAlt} width={50} height={50} className="object-contain" />
-                    <h2 className="text-lg md:text-3xl">Binary <br className="flex md:hidden" />Biology</h2>
+                    <span className="font-bold text-xl">{"Binary Biology"}</span>
                 </div>
             </Link>
             <div className="items-center space-x-1 flex md:hidden">
@@ -43,18 +43,22 @@ export default function Header() {
                             < SheetDescription className="pb-3">Biology & Technology</SheetDescription>
                             <Separator orientation={'horizontal'} />
                             <ul className="navbar-nav navbar flex flex-col justify-between items-start pt-5">
-                                <Link href="/" className="navbar nav-link cursor-pointer hover:underline underline-offset-2 w-full hover:scale-110 hover:bg-secondary hover:text-primary text-end pr-5 p-2 rounded" >
+                                <Link href="#" className="navbar nav-link cursor-pointer hover:underline underline-offset-2 w-full hover:scale-110 hover:bg-secondary hover:text-primary text-end pr-5 p-2 rounded" >
                                     <li>Home</li>
                                 </Link>
-                                <Link href="/about" className="navbar nav-link cursor-pointer hover:underline underline-offset-2 w-full hover:scale-110 hover:bg-secondary hover:text-primary text-end pr-5 p-2 rounded" >
-                                    <li>About</li>
+                                <Link href="#services" className="navbar nav-link cursor-pointer hover:underline underline-offset-2 w-full hover:scale-110 hover:bg-secondary hover:text-primary text-end pr-5 p-2 rounded" >
+                                    <li>Services</li>
                                 </Link>
-                                <Link href="#features" scroll={false} className="navbar nav-link cursor-pointer hover:underline underline-offset-2 w-full hover:scale-110 hover:bg-secondary hover:text-primary text-end pr-5 p-2 rounded" >
-                                    <li>Features</li>
+                                <Link href="#projects" className="navbar nav-link cursor-pointer hover:underline underline-offset-2 w-full hover:scale-110 hover:bg-secondary hover:text-primary text-end pr-5 p-2 rounded" >
+                                    <li>Projects</li>
                                 </Link>
-                                <Link href="https://thescientry.blogspot.com/" target="_blank" rel="noreferrer noopener" className="navbar nav-link cursor-pointer hover:underline underline-offset-2 w-full hover:scale-110 hover:bg-secondary hover:text-primary text-end pr-5 p-2 rounded" >
-                                    <li>Research Bulletin</li>
+                                <Link href="#faq" className="navbar nav-link cursor-pointer hover:underline underline-offset-2 w-full hover:scale-110 hover:bg-secondary hover:text-primary text-end pr-5 p-2 rounded" >
+                                    <li>F.A.Q.s</li>
                                 </Link>
+                                <Link href="#contact" className="navbar nav-link cursor-pointer hover:underline underline-offset-2 w-full hover:scale-110 hover:bg-secondary hover:text-primary text-end pr-5 p-2 rounded" >
+                                    <li>Contact</li>
+                                </Link>
+
                             </ul>
                         </SheetHeader>
                         < SheetFooter className="flex flex-col justify-between items-center -space-y-1">
@@ -67,10 +71,11 @@ export default function Header() {
                 </Sheet>
             </div>
             <nav className="hidden md:flex flex-row lg:space-x-5 space-x-4">
-                <Link href="/" className="text-lg md:text-xl hover:underline hover:text-primary decoration-wavy underline-offset-2">Home</Link>
-                <Link href="/about" className="text-lg md:text-xl hover:underline hover:text-primary decoration-wavy underline-offset-2">About</Link>
-                <Link href="/services" className="text-lg md:text-xl hover:underline hover:text-primary decoration-wavy underline-offset-2">Services</Link>
-                <Link href="/contact" className="text-lg md:text-xl hover:underline hover:text-primary decoration-wavy underline-offset-2">Contact</Link>
+                <Link href="#" className="text-lg md:text-xl hover:underline hover:text-primary decoration-wavy underline-offset-2">Home</Link>
+                <Link href="#services" className="text-lg md:text-xl hover:underline hover:text-primary decoration-wavy underline-offset-2">Services</Link>
+                <Link href="#projects" className="text-lg md:text-xl hover:underline hover:text-primary decoration-wavy underline-offset-2">Projects</Link>
+                <Link href="#faq" className="text-lg md:text-xl hover:underline hover:text-primary decoration-wavy underline-offset-2">F.A.Q.s</Link>
+                <Link href="#contact" className="text-lg md:text-xl hover:underline hover:text-primary decoration-wavy underline-offset-2">Contact</Link>
             </nav>
             <div className="items-center md:flex hidden flex-row justify-between space-x-4">
                 <Button variant={'outline'} size={'icon'} onClick={changeTheme}> <ThemeIcon /> </Button>
