@@ -15,10 +15,10 @@ export default function Footer() {
         { label: "F.A.Q.s", href: "#faqs" },
         { label: "Contact", href: "#contact" },
     ];
-    const legalLinks = [
-        { label: "Privacy Policy", href: "/privacy" },
-        { label: "Terms of Service", href: "/terms" },
-    ];
+    // const legalLinks = [
+    //     { label: "Privacy Policy", href: "/privacy" },
+    //     { label: "Terms of Service", href: "/terms" },
+    // ];
     const copyright = {
         text: "© 2025 Binary Biology",
         license: "All Rights Reserved.",

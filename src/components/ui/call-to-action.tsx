@@ -1,4 +1,4 @@
-import { MailIcon, MoveRight, PhoneCall } from "lucide-react";
+import { MailIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -17,7 +17,7 @@ function CTA() {
             </h3>
             <p className="text-lg leading-relaxed tracking-tight text-muted-foreground max-w-xl">
               Managing a business today is already tough. We know. Let us help
-              you with your questions. Send us a mail and let's schedule a call.
+              you with your questions. Send us a mail and let&apos;s schedule a call.
             </p>
           </div>
           <div className="flex flex-row gap-4">

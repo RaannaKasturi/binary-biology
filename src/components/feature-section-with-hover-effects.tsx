@@ -1,16 +1,6 @@
 import { cn } from "@/lib/utils";
-import {
-  IconAdjustmentsBolt,
-  IconCloud,
-  IconCurrencyDollar,
-  IconEaseInOut,
-  IconHeart,
-  IconHelp,
-  IconRouteAltLeft,
-  IconTerminal2,
-} from "@tabler/icons-react";
+import { IconTerminal2, } from "@tabler/icons-react";
 import { BotIcon, BrushIcon, DnaIcon, PenIcon, PhoneCallIcon, ServerIcon, SmartphoneIcon } from "lucide-react";
-import { Button } from "./ui/button";
 
 export function FeaturesSectionWithHoverEffects() {
   const features = [

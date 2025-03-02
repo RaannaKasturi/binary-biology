@@ -1,4 +1,4 @@
-import { Check, PhoneCall } from "lucide-react";
+import { PhoneCall } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import {
   Accordion,
@@ -24,7 +24,7 @@ function FAQ() {
                   Everything You Need to Know About Our Services
                 </h4>
                 <p className="text-lg max-w-xl lg:max-w-lg leading-relaxed tracking-tight text-muted-foreground  text-left">
-                  We understand that choosing the right solution can be a big decision. That's why we've compiled a list of frequently asked questions to help clarify our services, processes, and pricing.
+                  We understand that choosing the right solution can be a big decision. That&apos;s why we&apos;ve compiled a list of frequently asked questions to help clarify our services, processes, and pricing.
                 </p>
               </div>
               <div >
@@ -63,7 +63,7 @@ function FAQ() {
             </AccordionItem>
             <AccordionItem key={4} value={"index-" + 4} >
               <AccordionTrigger className="text-start underline-offset-2">
-                Can I make changes to my website after it's been completed?
+                Can I make changes to my website after it&apos;s been completed?
               </AccordionTrigger>
               <AccordionContent>
                 Absolutely! All websites are built with user-friendly content management systems, allowing you to easily update text, images, and other content without needing technical skills.
