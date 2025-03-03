@@ -148,7 +148,7 @@ function HeroGeometric({
             </div>
 
             <div className="relative z-10 container mx-auto px-4 md:px-6">
-                <div className="max-w-3xl mx-auto text-center items-center flex flex-col justify-center h-full pt-24 md:pt-32">
+                <div className="max-w-3xl mx-auto text-center items-center flex flex-col justify-center h-full">
                     <Link target="_blank" rel="nofollow noreferrer" href={"https://scientry.binarybiology.top"} >
                         <motion.div
                             custom={0}

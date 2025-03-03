@@ -15,7 +15,6 @@ export default function Home() {
       < Separator />
       < FAQs />
       < Contact />
-      < Footer />
     </div>
   );
 }

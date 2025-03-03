@@ -23,7 +23,7 @@ export default function Header() {
     }
 
     return (
-        <header className="fixed flex items-center bg-background z-40 flex-row top-0 w-full border-b-2 p-3 justify-between">
+        <header className="sticky flex items-center bg-background z-40 flex-row top-0 w-full border-b-2 p-3 justify-between">
             <div className="flex flex-row justify-between items-center w-full max-w-7xl mx-auto px-5">
                 <Link href={"/"} className="cursor-pointer" >
                     <div className="flex flex-row items-center space-x-3">

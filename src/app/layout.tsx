@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/static/header";
 import NextTopLoader from "nextjs-toploader";
+import Footer from "@/components/static/footer";
 
 const fontSyne = Syne({
   weight: 'variable',
@@ -32,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${fontSyne.variable} ${fontPoppins.variable} antialiased`}
+        className={`${fontSyne.variable} ${fontPoppins.variable} w-full flex flex-col justify-center items-center antialiased`}
       >
         <ThemeProvider
           attribute="class"
@@ -42,8 +43,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           < NextTopLoader />
-          <Header />
+          < Header />
           {children}
+          < Footer />
         </ThemeProvider>
       </body>
     </html>
