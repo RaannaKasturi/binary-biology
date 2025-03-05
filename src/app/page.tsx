@@ -1,4 +1,3 @@
-import Footer from "@/components/static/footer";
 import { Separator } from "@/components/ui/separator";
 import Contact from "@/pages/front-page/cta";
 import FAQs from "@/pages/front-page/faq";
