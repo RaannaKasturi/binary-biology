@@ -1,18 +1,9 @@
 "use client";
 
-import { useForm } from "react-hook-form";
-import { useId } from "react";
-import {
-    Form,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormControl,
-    FormMessage,
-} from "@/components/ui/form";
-import { zodResolver } from "@hookform/resolvers/zod"
-import { z } from "zod";
+import React, { useId, useState } from "react";
+import { useForm, ValidationError } from "@formspree/react";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import {
     Select,
@@ -21,8 +12,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
-import React from "react";
-import { Textarea } from "@/components/ui/textarea";
+import Link from "next/link";
 
 const services = [
     { label: "Website Development", value: "wd" },
@@ -36,253 +26,152 @@ const services = [
 ];
 
 export default function CCForm() {
-    const formSchema = z.object({
-        name: z.string().min(2, {
-            message: "Name must be at least 2 characters.",
-        }).includes(" ", {
-            message: "Name must be a full name.",
-        }),
-        email: z.string().email({
-            message: "Invalid email address.",
-        }),
-        phone: z.string().min(7, {
-            message: "Phone number must be at least 10 digits.",
-        }).regex(/^\+?\d{1,4}?\s?\d{6,12}$/, {
-            message: "Invalid phone number format.",
-        }),
-        service: z.enum([
-            "wd",
-            "ad",
-            "bd",
-            "ba",
-            "amd",
-            "cw",
-            "gd",
-            "ot",
-        ], {
-            errorMap: () => ({ message: "Please select a service." }),
-        }),
-        orgname: z.string().optional(),
-        projtitle: z.string().min(2, {
-            message: "Project title must be at least 2 characters.",
-        }),
-        projdesc: z.string().min(10, {
-            message: "Project description must be at least 10 characters.",
-        }),
-        budget: z.number().min(5000, {
-            message: "Minimum Budget must be INR 5000.",
-        }).max(1000000, {
-            message: "Budget must be less than 10,00,000.",
-        }),
-        file: z.instanceof(File).optional().refine((file) => {
-            if (!file) return true;
-            const maxSize = 5 * 1024 * 1024;
-            return file.size <= maxSize;
-        }, {
-            message: "File size must be less than 5MB.",
-        }),
-    })
-
-
-    const form = useForm({
-        resolver: zodResolver(formSchema),
-        defaultValues: {
-            name: "",
-            email: "",
-            phone: "",
-            orgname: "",
-            service: undefined,
-            projtitle: "",
-            projdesc: "",
-            budget: 5000,
-            file: undefined,
-        },
-    });
-
+    const [state, handleSubmit] = useForm("mpwdqkkj");
+    const [agreed, setAgreed] = useState(false);
     const id = useId();
 
-    const onSubmit = (data: z.infer<typeof formSchema>) => {
-        console.log("Form submitted:", data);
-    };
-
-    const resetForm = () => {
-        form.reset();
-    };
+    if (state.succeeded) {
+        return (
+            <div className="flex flex-col gap-4 w-11/12 md:w-6/12 mx-auto py-8">
+                <h1 className="text-2xl font-bold text-center">Thank You!</h1>
+                <p className="text-green-600 text-center text-lg">
+                    Your response has been submitted successfully!<br />
+                    Please sit back and relax.<br />
+                    We'll contact you in a while!
+                </p>
+                <br />
+                <p className="text-center text-muted-foreground text-lg">
+                    If you have any questions, please mail us at{" "}<br />
+                    <Link target={"_blank"} rel={"noreferrer nofollow"} href="mailto:contact@binarybiology.top" className="text-blue-500 text-lg underline">
+                        contact@binarybiology.top
+                    </Link>
+                </p >
+            </div >
+        );
+    }
+    if (state.errors) {
+        return (
+            <div className="flex flex-col gap-4 w-11/12 md:w-6/12 mx-auto py-8">
+                <h1 className="text-2xl font-bold text-center">Thank You!</h1>
+                <p className="text-red-600 text-center text-lg">
+                    Your response couldn't been submitted!<br />
+                    Please mail us your details at{" "}<br />
+                    <Link target={"_blank"} rel={"noreferrer nofollow"} href="mailto:contact@binarybiology.top" className="text-blue-500 text-lg underline">
+                        contact@binarybiology.top
+                    </Link><br />
+                    While we fix the issue!<br />
+                </p>
+            </div>
+        );
+    }
 
     return (
-        <Form {...form}>
-            <form
-                onSubmit={form.handleSubmit(onSubmit)}
-                className="space-y-4 w-8/12 md:w-4/12"
-            >
-                <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Name</FormLabel>
-                            <FormControl>
-                                <Input placeholder="Nayan Kasturi" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
+        <form
+            onSubmit={handleSubmit}
+            className="space-y-5 w-11/12 md:w-6/12 mx-auto mb-20"
+            encType="multipart/form-data"
+        >
+            <div className="flex flex-col gap-2">
+                <label htmlFor="name">&nbsp;&nbsp;Full Name</label>
+                <Input id="name" name="name" placeholder="Nayan Kasturi" required />
+                <ValidationError prefix="Name" field="name" errors={state.errors} />
+            </div>
 
-                <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Email Address</FormLabel>
-                            <FormControl>
-                                <Input placeholder="nayank@binarybiology.top" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
+            <div className="flex flex-col gap-2">
+                <label htmlFor="email">&nbsp;&nbsp;Email Address</label>
+                <Input id="email" type="email" name="email" placeholder="email@example.com" required />
+                <ValidationError prefix="Email" field="email" errors={state.errors} />
+            </div>
 
-                <FormField
-                    control={form.control}
-                    name="phone"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Phone Number (With Country Code)</FormLabel>
-                            <FormControl>
-                                <Input placeholder="+91 XXXXX XXXXX" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
+            <div className="flex flex-col gap-2">
+                <label htmlFor="phone">&nbsp;&nbsp;Phone Number (With Country Code)</label>
+                <Input id="phone" name="phone" placeholder="+91 XXXXX XXXXX" required />
+                <ValidationError prefix="Phone" field="phone" errors={state.errors} />
+            </div>
 
-                <FormField
-                    control={form.control}
-                    name="orgname"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Organization Name</FormLabel>
-                            <FormControl>
-                                <Input placeholder="Binary Biology or None" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
+            <div className="flex flex-col gap-2">
+                <label htmlFor="orgname">&nbsp;&nbsp;Organization Name</label>
+                <Input id="orgname" name="orgname" placeholder="Binary Biology or None" />
+                <ValidationError prefix="OrgName" field="orgname" errors={state.errors} />
+            </div>
 
-                <FormField
-                    control={form.control}
-                    name="service"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Service</FormLabel>
-                            <Select
-                                onValueChange={field.onChange}
-                                value={field.value}
-                                defaultValue={field.value}
-                            >
-                                <FormControl>
-                                    <SelectTrigger>
-                                        <SelectValue placeholder="Select Interested Service" />
-                                    </SelectTrigger>
-                                </FormControl>
-                                <SelectContent className="w-full h-52">
-                                    {services.map((service) => (
-                                        <SelectItem key={service.value} value={service.value}>
-                                            {service.label}
-                                        </SelectItem>
-                                    ))}
-                                </SelectContent>
-                            </Select>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
+            <div className="flex flex-col gap-2">
+                <label htmlFor="service">&nbsp;&nbsp;Service</label>
+                <Select name="service" required>
+                    <SelectTrigger>
+                        <SelectValue placeholder="Select Interested Service" />
+                    </SelectTrigger>
+                    <SelectContent>
+                        {services.map((s) => (
+                            <SelectItem key={s.value} value={s.label}>
+                                {s.label}
+                            </SelectItem>
+                        ))}
+                    </SelectContent>
+                </Select>
+                <ValidationError prefix="Service" field="service" errors={state.errors} />
+            </div>
 
-                <FormField
-                    control={form.control}
-                    name="projtitle"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Project Title</FormLabel>
-                            <FormControl>
-                                <Input placeholder="Scientry" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
+            <div className="flex flex-col gap-2">
+                <label htmlFor="projtitle">&nbsp;&nbsp;Project Title</label>
+                <Input id="projtitle" name="projtitle" placeholder="Scientry" required />
+                <ValidationError prefix="Title" field="projtitle" errors={state.errors} />
+            </div>
 
-                <FormField
-                    control={form.control}
+            <div className="flex flex-col gap-2">
+                <label htmlFor="projdesc">&nbsp;&nbsp;Project Description</label>
+                <Textarea
+                    id="projdesc"
                     name="projdesc"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Project Description</FormLabel>
-                            <FormControl>
-                                <Textarea className="h-40" placeholder="Describe your project, platform, tech stack, etc. details" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
+                    className="h-40"
+                    placeholder="Describe your project, platform, tech stack, etc."
+                    required
                 />
+                <ValidationError prefix="Description" field="projdesc" errors={state.errors} />
+            </div>
 
-                <FormField
-                    control={form.control}
-                    name="budget"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Budget (in INR(₹))</FormLabel>
-                            <FormControl>
-                                <Input placeholder="Budget of project" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
+            <div className="flex flex-col gap-2">
+                <label htmlFor="budget">&nbsp;&nbsp;Budget (in INR ₹)</label>
+                <Input id="budget" name="budget" type="number" min={5000} max={1000000} required />
+                <ValidationError prefix="Budget" field="budget" errors={state.errors} />
+            </div>
+
+            <div className="flex items-start space-x-2">
+                <input
+                    id="agree"
+                    type="checkbox"
+                    checked={agreed}
+                    onChange={() => setAgreed(!agreed)}
+                    className="mt-1.5"
+                    required
                 />
+                <label htmlFor="agree">
+                    I on behalf of Myself and/or My Organization have submitted this form and allow Binary Biology and/or Nayan Kasturi to contact me.
+                </label>
+                <ValidationError prefix="Agree" field="agree" errors={state.errors} />
+            </div>
 
-                <FormField
-                    control={form.control}
-                    name="file"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Attachments (Optional)</FormLabel>
-                            <FormControl>
-                                <Input
-                                    id={id}
-                                    className="ps-3 pe-3 file:me-3 file:border-0 file:border-e justify-center items-center content-center"
-                                    type="file"
-                                    onChange={(e) => {
-                                        const file = e.target.files?.[0];
-                                        field.onChange(file);
-                                    }}
-                                />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-
-                <div className="flex flex-col items-center justify-center w-full pt-2">
-                    <Button
-                        variant={"outline"}
-                        type="button"
-                        className="w-full mt-2"
-                        onClick={resetForm}
-                    >
-                        Reset
-                    </Button>
-                    <Button
-                        variant={'default'}
-                        type="submit"
-                        className="w-full mt-2"
-                        onClick={form.handleSubmit(onSubmit)}
-                    >
-                        Submit
-                    </Button>
-                </div>
-            </form>
-        </Form>
+            <div className="flex flex-col gap-2 pt-2">
+                <Button
+                    type="submit"
+                    variant={state.submitting ? "secondary" : "default"}
+                    disabled={state.submitting}
+                    aria-busy={state.submitting}
+                    className={`w-full ${state.submitting ? " animate-pulse" : ""}`}
+                >
+                    Submit
+                </Button>
+                {/* <Button
+                    type="reset"
+                    variant="outline"
+                    className="w-full"
+                    onClick={() => {
+                        document.querySelector("form")?.reset();
+                    }}
+                >
+                    Reset
+                </Button> */}
+            </div>
+        </form>
     );
 }
