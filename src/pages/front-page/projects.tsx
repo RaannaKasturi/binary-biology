@@ -3,19 +3,28 @@
 import { Gallery4, Gallery4Props } from "@/components/gallery4";
 import { BlurFade } from "@/components/ui/blur-fade";
 
-const demoData: Gallery4Props = {
+const projectData: Gallery4Props = {
     title: "Projects",
     description:
         "Discover how we’ve helped businesses and researchers like yours, to achieve their goals through stunning web designs and effective digital solutions. Our portfolio showcases a variety of projects, includion a few of ours, demonstrating our commitment to quality and innovation.",
     items: [
         {
+            id: "protein-research-toolkit",
+            title: "Protein Research Toolkit",
+            label: "App Development",
+            description: "All-in-One Protein Research Software",
+            href: "https://github.com/RaannaKasturi/ProteinResearchToolkit/releases/tag/v1.0-FINAL",
+            image:
+                "/backgrounds/protein-research-toolkit.jpg",
+        },
+        {
             id: "project-gatekeeper",
             title: "Project Gatekeeper",
             label: "Web Development",
             description: "All-in-One SSL Toolkit",
-            href: "https://projectgatekeeper.vercel.app",
+            href: "https://gatekeeper.binarybiology.top/",
             image:
-                "https://images.unsplash.com/photo-1551250928-243dc937c49d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2NDI3NzN8MHwxfGFsbHwxMjN8fHx8fHwyfHwxNzIzODA2OTM5fA&ixlib=rb-4.0.3&q=80&w=1080",
+                "/backgrounds/project-gatekeeper.jpg",
         },
         {
             id: "scientry-app",
@@ -24,7 +33,7 @@ const demoData: Gallery4Props = {
             description: "Science Simplified, Knowledge Amplified.",
             href: "https://scientry.binarybiology.top",
             image:
-                "https://images.unsplash.com/photo-1551250928-e4a05afaed1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2NDI3NzN8MHwxfGFsbHwxMjR8fHx8fHwyfHwxNzIzODA2OTM5fA&ixlib=rb-4.0.3&q=80&w=1080",
+                "/backgrounds/scientry-android.jpg",
         },
         {
             id: "scientry-web",
@@ -33,7 +42,7 @@ const demoData: Gallery4Props = {
             description: "Science Simplified, Knowledge Amplified.",
             href: "https://scientry.binarybiology.top",
             image:
-                "https://images.unsplash.com/photo-1551250928-e4a05afaed1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2NDI3NzN8MHwxfGFsbHwxMjR8fHx8fHwyfHwxNzIzODA2OTM5fA&ixlib=rb-4.0.3&q=80&w=1080",
+                "/backgrounds/scientry-web.jpg",
         },
     ],
 };
@@ -42,7 +51,7 @@ export default function Projects() {
     return (
         <section id="projects" className="items-center justify-center p-5 w-full select-none">
             <BlurFade delay={0.25} inView className="py-20">
-                <Gallery4 {...demoData} />
+                <Gallery4 {...projectData} />
             </BlurFade>
         </section>
     )

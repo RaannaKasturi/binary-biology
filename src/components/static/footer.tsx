@@ -28,7 +28,7 @@ export default function Footer() {
             <div className="px-4 lg:px-8">
                 <div className="flex items-start justify-center md:justify-between">
                     <Link
-                        href="/"
+                        href={"/"}
                         className="flex items-center gap-x-2"
                         aria-label={"Binary Biology"}
                     >
@@ -54,7 +54,7 @@ export default function Footer() {
                 </div>
                 <div className=" border-t mt-6 pt-6 md:mt-4 md:pt-8 lg:grid lg:grid-cols-10">
                     <nav className="lg:mt-0 lg:col-[4/11] flex items-start justify-center md:justify-end">
-                        <ul className="list-none flex flex-wrap -my-1 -mx-2 lg:justify-end">
+                        <ul className="list-none flex flex-wrap -my-1 -mx-2 lg:justify-end justify-center">
                             {mainLinks.map((link, i) => (
                                 <li key={i} className="my-1 mx-2 shrink-0">
                                     <Link
