@@ -1,9 +1,10 @@
 "use client";
 
 import { motion, } from "framer-motion";
-import { ChevronRight, Circle } from "lucide-react";
+import { ChevronRight, Circle, LucideChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { Button } from "./button";
 
 
 function ElegantShape({
@@ -192,10 +193,21 @@ function HeroGeometric({
                         initial="hidden"
                         animate="visible"
                     >
-                        <p className="text-base sm:text-lg md:text-xl text-white/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
+                        <p className="text-base sm:text-lg md:text-xl text-white/40 mt-4 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
                             Crafting exceptional websites and apps and performing crucial analysis through
                             innovative design and cutting-edge technology.
                         </p>
+                    </motion.div>
+
+                    <motion.div
+                        custom={2}
+                        variants={fadeUpVariants}
+                        initial="hidden"
+                        animate="visible"
+                    >
+                        < Link rel="nofollow noreferrer" href={"/client-connect"} >
+                            < Button variant={'outline'} size={'lg'} className="rounded-full bg-white/25 border-white hover:bg-white hover:border-black hover:text-black group">Send Requirements< LucideChevronRight className="inline fill-white/40 group-hover:fill-black/40" /> </Button>
+                        </Link>
                     </motion.div>
                 </div>
             </div>
