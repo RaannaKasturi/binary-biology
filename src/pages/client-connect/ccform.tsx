@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useId, useState } from "react";
+import React, { useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -28,7 +28,6 @@ const services = [
 export default function CCForm() {
     const [state, handleSubmit] = useForm("mpwdqkkj");
     const [agreed, setAgreed] = useState(false);
-    const id = useId();
 
     if (state.succeeded) {
         return (
@@ -37,7 +36,7 @@ export default function CCForm() {
                 <p className="text-green-600 text-center text-lg">
                     Your response has been submitted successfully!<br />
                     Please sit back and relax.<br />
-                    We'll contact you in a while!
+                    We&apos;ll contact you in a while!
                 </p>
                 <br />
                 <p className="text-center text-muted-foreground text-lg">
@@ -54,7 +53,7 @@ export default function CCForm() {
             <div className="flex flex-col gap-4 w-11/12 md:w-6/12 mx-auto py-8">
                 <h1 className="text-2xl font-bold text-center">Thank You!</h1>
                 <p className="text-red-600 text-center text-lg">
-                    Your response couldn't been submitted!<br />
+                    Your response couldn&apos;t been submitted!<br />
                     Please mail us your details at{" "}<br />
                     <Link target={"_blank"} rel={"noreferrer nofollow"} href="mailto:contact@binarybiology.top" className="text-blue-500 text-lg underline">
                         contact@binarybiology.top
