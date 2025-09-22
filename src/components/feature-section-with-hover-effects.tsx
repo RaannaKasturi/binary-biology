@@ -10,7 +10,7 @@ export function FeaturesSectionWithHoverEffects() {
       icon: <IconTerminal2 />,
     },
     {
-      title: "Andriod & iOS Development",
+      title: "Android & iOS Development",
       description: "Building mobile applications that are user-friendly and functional.",
       icon: <SmartphoneIcon />,
     },
