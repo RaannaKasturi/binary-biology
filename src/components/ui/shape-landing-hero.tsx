@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, } from "framer-motion";
+import { motion, Variants, } from "framer-motion";
 import { ChevronRight, Circle, LucideChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -84,7 +84,7 @@ function HeroGeometric({
     title1?: string;
     title2?: string;
 }) {
-    const fadeUpVariants = {
+    const fadeUpVariants: Variants = {
         hidden: { opacity: 0, y: 30 },
         visible: (i: number) => ({
             opacity: 1,
@@ -92,7 +92,7 @@ function HeroGeometric({
             transition: {
                 duration: 1,
                 delay: 0.5 + i * 0.2,
-                ease: [0.25, 0.4, 0.25, 1],
+                ease: [0.25, 0.4, 0.25, 1] as [number, number, number, number],
             },
         }),
     };
@@ -156,7 +156,7 @@ function HeroGeometric({
                             variants={fadeUpVariants}
                             initial="hidden"
                             animate="visible"
-                            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12 hover:scale-110 cursor-pointer"
+                            className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-white bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12 hover:scale-110 cursor-pointer"
                         >
                             <Circle className="h-2 w-2 fill-green-500/80" />
                             <span className="text-sm text-white/60 tracking-wide">
@@ -206,7 +206,7 @@ function HeroGeometric({
                         animate="visible"
                     >
                         < Link rel="nofollow noreferrer" href={"/client-connect"} >
-                            < Button variant={'outline'} size={'lg'} className="rounded-full bg-white/25 border-white hover:bg-white hover:border-black hover:text-black group">Send Requirements< LucideChevronRight className="inline fill-white/40 group-hover:fill-black/40" /> </Button>
+                            < Button variant={'outline'} size={'lg'} className="rounded-full text-white bg-white/25 border-white hover:bg-white hover:border-black hover:text-black group">Send Requirements< LucideChevronRight className="inline fill-white/40 group-hover:fill-black/40" /> </Button>
                         </Link>
                     </motion.div>
                 </div>
