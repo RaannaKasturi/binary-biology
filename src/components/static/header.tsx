@@ -10,7 +10,7 @@ import { Separator } from "../ui/separator";
 
 export default function Header() {
     const { theme, setTheme } = useTheme();
-    const logo = theme === "dark" ? "/brand/logo-dark.png" : "/brand/logo-light.png";
+    const logo = "/brand/logo.svg";
     const logoAlt = theme === "dark" ? "BB Logo Dark" : "BB Logo Light";
     const ThemeIcon = theme === "dark" ? MoonIcon : SunIcon;
 

@@ -1,12 +1,10 @@
 "use client"
 
 import Image from "next/image";
-import { useTheme } from "next-themes";
 import Link from "next/link";
 
 export default function Footer() {
-    const { theme } = useTheme();
-    const logoFile = theme === "dark" ? "/brand/logo-dark.png" : "/brand/logo-light.png";
+    const logoFile = "/brand/logo.svg";
     const logo = <Image src={logoFile} alt={"logoAlt"} width={50} height={50} className="object-contain" />;
     const mainLinks = [
         { label: "Home", href: "#" },
